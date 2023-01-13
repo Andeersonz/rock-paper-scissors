@@ -23,11 +23,20 @@ function playRound(playerSelection, computerSelection) {
       else if (computerSelection.toLowerCase() == list[2].toLowerCase())
         return "You win! " + playerSelection.toUpperCase() + " beats " + computerSelection.toUpperCase() + "!";
       break;
+
     //PAPER ALGORITHM
     case list[1].toLowerCase():
       if (computerSelection.toLowerCase() == list[0].toLowerCase())
         return "You win! " + playerSelection.toUpperCase() + " beats " + computerSelection.toUpperCase() + "!";
       else if (computerSelection.toLowerCase() == list[2].toLowerCase())
+        return "You lose! " + computerSelection.toUpperCase() + " beats " + playerSelection.toUpperCase() + "!";
+      break;
+
+    //SCISSOR ALGORITHM
+    case list[2].toLowerCase():
+      if (computerSelection.toLowerCase() == list[1].toLowerCase())
+        return "You win! " + playerSelection.toUpperCase() + " beats " + computerSelection.toUpperCase() + "!";
+      else if (computerSelection.toLowerCase() == list[0].toLowerCase())
         return "You lose! " + computerSelection.toUpperCase() + " beats " + playerSelection.toUpperCase() + "!";
       break;
   }
@@ -37,7 +46,7 @@ function game(playRound) {
 
 }
 
-const playerSelection = "rock"
+const playerSelection = "PaPer"
 const computerSelection = getComputerChoice();
 
 console.log(playRound(playerSelection, computerSelection));
