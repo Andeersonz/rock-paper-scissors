@@ -22,6 +22,8 @@ function playRound(playerSelection, computerSelection) {
         return "You lose! " + computerSelection.toUpperCase() + " beats " + playerSelection.toUpperCase() + "!";
       else if (computerSelection.toLowerCase() == list[2].toLowerCase())
         return "You win! " + playerSelection.toUpperCase() + " beats " + computerSelection.toUpperCase() + "!";
+      else if (computerSelection.toLowerCase() == playerSelection.toLowerCase())
+        return "It's a tie! Both players chose " + computerSelection.toUpperCase() + "!";
       break;
 
     //PAPER ALGORITHM
@@ -30,6 +32,8 @@ function playRound(playerSelection, computerSelection) {
         return "You win! " + playerSelection.toUpperCase() + " beats " + computerSelection.toUpperCase() + "!";
       else if (computerSelection.toLowerCase() == list[2].toLowerCase())
         return "You lose! " + computerSelection.toUpperCase() + " beats " + playerSelection.toUpperCase() + "!";
+      else if (computerSelection.toLowerCase() == playerSelection.toLowerCase())
+        return "It's a tie! Both players chose " + computerSelection.toUpperCase() + "!";
       break;
 
     //SCISSOR ALGORITHM
@@ -38,6 +42,8 @@ function playRound(playerSelection, computerSelection) {
         return "You win! " + playerSelection.toUpperCase() + " beats " + computerSelection.toUpperCase() + "!";
       else if (computerSelection.toLowerCase() == list[0].toLowerCase())
         return "You lose! " + computerSelection.toUpperCase() + " beats " + playerSelection.toUpperCase() + "!";
+      else if (computerSelection.toLowerCase() == playerSelection.toLowerCase())
+        return "It's a tie! Both players chose " + computerSelection.toUpperCase() + "!";
       break;
   }
 }
@@ -46,7 +52,7 @@ function game(playRound) {
 
 }
 
-const playerSelection = "PaPer"
+const playerSelection = "roCK"
 const computerSelection = getComputerChoice();
 
 console.log(playRound(playerSelection, computerSelection));
