@@ -14,12 +14,22 @@ function playRound(playerSelection, computerSelection) {
     console.log("You win! Rock beats Scissors!");
   else if ()*/
 
-  switch (playerSelection.toLowerCase()) {
+  switch (playerSelection.toLowerCase()) { //.toLowerCase() makes input case-insensitive
+
+    //ROCK ALGORITHM
     case list[0].toLowerCase():
       if (computerSelection.toLowerCase() == list[1].toLowerCase())
         return "You lose! " + computerSelection.toUpperCase() + " beats " + playerSelection.toUpperCase() + "!";
       else if (computerSelection.toLowerCase() == list[2].toLowerCase())
         return "You win! " + playerSelection.toUpperCase() + " beats " + computerSelection.toUpperCase() + "!";
+      break;
+    //PAPER ALGORITHM
+    case list[1].toLowerCase():
+      if (computerSelection.toLowerCase() == list[0].toLowerCase())
+        return "You win! " + playerSelection.toUpperCase() + " beats " + computerSelection.toUpperCase() + "!";
+      else if (computerSelection.toLowerCase() == list[2].toLowerCase())
+        return "You lose! " + computerSelection.toUpperCase() + " beats " + playerSelection.toUpperCase() + "!";
+      break;
   }
 }
 
