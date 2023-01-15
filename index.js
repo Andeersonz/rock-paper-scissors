@@ -1,4 +1,4 @@
-let list = ['Rock', 'Paper', 'Scissors'];
+const list = ['Rock', 'Paper', 'Scissor'];
 
 function getComputerChoice() {
   let randomizer = list[Math.floor(Math.random() * list.length)];
@@ -7,13 +7,6 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-  
-  /*if (playerSelection.toLowerCase() == list[0].toLowerCase() && computerSelection == list[1].toLowerCase())
-    console.log("You lose! Paper beats Rock!");
-  else if (playerSelection.toLowerCase() == list[0].toLowerCase() && computerSelection == list[2].toLowerCase())
-    console.log("You win! Rock beats Scissors!");
-  else if ()*/
-
   switch (playerSelection.toLowerCase()) { //.toLowerCase() makes input case-insensitive
 
     //ROCK ALGORITHM
@@ -48,11 +41,18 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function game(playRound) {
+function game(){
+  let playerScore = 0;
+  let botScore = 0;
 
+  for (let i=1; i < 6; i++){
+    playerSelection = prompt("Enter your move (Rock, Paper, or Scissor): ");
+    computerSelection = getComputerChoice();
+    console.log("Round " + i + ": " + playRound(playerSelection, computerSelection));
+  }
 }
 
-const playerSelection = "roCK"
-const computerSelection = getComputerChoice();
+let computerSelection = getComputerChoice();
+let playerSelection = '';
 
-console.log(playRound(playerSelection, computerSelection));
+console.log(game(playRound(playerSelection, computerSelection)));
