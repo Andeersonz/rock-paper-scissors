@@ -61,7 +61,7 @@ function game(){
 
 const list = ['Rock', 'Paper', 'Scissor'];
 
-let computerSelection = getComputerChoice();
+let computerSelection;
 let playerSelection = '';
 
 var playerScore = 0;
@@ -70,7 +70,7 @@ var botScore = 0;
 game(playRound(playerSelection, computerSelection));
 
 if (playerScore > botScore)
-  console.log("Player Total Score: " + playerScore + "\nComputer Total Score: " + botScore + "YOU WIN!");
+  console.log("Player Total Score: " + playerScore + "\nComputer Total Score: " + botScore + "\nYOU WIN!");
 else if (playerScore < botScore)
   console.log("Computer Total Score: " + botScore + "\nPlayer Total Score: " + playerScore + "\nYOU LOSE!");
 else 
