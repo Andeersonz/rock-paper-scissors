@@ -1,5 +1,3 @@
-const list = ['Rock', 'Paper', 'Scissor'];
-
 function getComputerChoice() {
   let randomizer = list[Math.floor(Math.random() * list.length)];
 
@@ -11,48 +9,69 @@ function playRound(playerSelection, computerSelection) {
 
     //ROCK ALGORITHM
     case list[0].toLowerCase():
-      if (computerSelection.toLowerCase() == list[1].toLowerCase())
+      if (computerSelection.toLowerCase() == list[1].toLowerCase()){
+        botScore += 1;
         return "You lose! " + computerSelection.toUpperCase() + " beats " + playerSelection.toUpperCase() + "!";
-      else if (computerSelection.toLowerCase() == list[2].toLowerCase())
+      }
+      else if (computerSelection.toLowerCase() == list[2].toLowerCase()){
+        playerScore += 1;
         return "You win! " + playerSelection.toUpperCase() + " beats " + computerSelection.toUpperCase() + "!";
-      else if (computerSelection.toLowerCase() == playerSelection.toLowerCase())
+      }
+      else if (computerSelection.toLowerCase() == playerSelection.toLowerCase()){
         return "It's a tie! Both players chose " + computerSelection.toUpperCase() + "!";
-      break;
+      }
 
     //PAPER ALGORITHM
     case list[1].toLowerCase():
-      if (computerSelection.toLowerCase() == list[0].toLowerCase())
+      if (computerSelection.toLowerCase() == list[0].toLowerCase()){
+        playerScore += 1;
         return "You win! " + playerSelection.toUpperCase() + " beats " + computerSelection.toUpperCase() + "!";
-      else if (computerSelection.toLowerCase() == list[2].toLowerCase())
+      }
+      else if (computerSelection.toLowerCase() == list[2].toLowerCase()){
+        botScore += 1;
         return "You lose! " + computerSelection.toUpperCase() + " beats " + playerSelection.toUpperCase() + "!";
-      else if (computerSelection.toLowerCase() == playerSelection.toLowerCase())
+      }
+      else if (computerSelection.toLowerCase() == playerSelection.toLowerCase()){
         return "It's a tie! Both players chose " + computerSelection.toUpperCase() + "!";
-      break;
+      }
 
     //SCISSOR ALGORITHM
     case list[2].toLowerCase():
-      if (computerSelection.toLowerCase() == list[1].toLowerCase())
+      if (computerSelection.toLowerCase() == list[1].toLowerCase()){
+        playerScore += 1;
         return "You win! " + playerSelection.toUpperCase() + " beats " + computerSelection.toUpperCase() + "!";
-      else if (computerSelection.toLowerCase() == list[0].toLowerCase())
+      }
+      else if (computerSelection.toLowerCase() == list[0].toLowerCase()){
+        botScore += 1;
         return "You lose! " + computerSelection.toUpperCase() + " beats " + playerSelection.toUpperCase() + "!";
-      else if (computerSelection.toLowerCase() == playerSelection.toLowerCase())
+      }
+      else if (computerSelection.toLowerCase() == playerSelection.toLowerCase()){
         return "It's a tie! Both players chose " + computerSelection.toUpperCase() + "!";
-      break;
+      }
   }
 }
 
 function game(){
-  let playerScore = 0;
-  let botScore = 0;
-
   for (let i=1; i < 6; i++){
     playerSelection = prompt("Enter your move (Rock, Paper, or Scissor): ");
     computerSelection = getComputerChoice();
     console.log("Round " + i + ": " + playRound(playerSelection, computerSelection));
-  }
+    }
 }
+
+const list = ['Rock', 'Paper', 'Scissor'];
 
 let computerSelection = getComputerChoice();
 let playerSelection = '';
 
-console.log(game(playRound(playerSelection, computerSelection)));
+var playerScore = 0;
+var botScore = 0;
+
+game(playRound(playerSelection, computerSelection));
+
+if (playerScore > botScore)
+  console.log("Player Total Score: " + playerScore + "\nComputer Total Score: " + botScore + "YOU WIN!");
+else if (playerScore < botScore)
+  console.log("Computer Total Score: " + botScore + "\nPlayer Total Score: " + playerScore + "\nYOU LOSE!");
+else 
+  console.log("It's... a tie... Impossible... How can it be..?")
